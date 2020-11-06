@@ -17,13 +17,19 @@ class MyBot(discord.Client):
             # breakpoint()
             await message.channel.send("test")
 
+        if (message.content == "echo"):
+            print('Message from {0.author}: {0.content}'.format(message))
+            await message.channel.send('You are {0.content}'.format(message))
+            # breakpoint()
+            await message.channel.send("test")
+
         if (message.content == "emote"):
             print('Message from {0.author}: {0.content}'.format(message))
-            await
             # message.channel.send('You are {0.author}'.format(message))
             # breakpoint()
-            await
-            message.channel.send("<a:petJules:769223894749151292>")
+            await message.channel.send("<a:petJules:769223894749151292>")
+            await message.channel.send("a:petJules:769223894749151292")
+            await message.channel.send("<:sealotter:770239018628808735>")
             
         if (message.content == "Voice"):
             print('Message from {0.author}: {0.content}'.format(message))
@@ -32,7 +38,7 @@ class MyBot(discord.Client):
             # voicechannel.play(discord.PCMAudio('test.wav'))
             # breakpoint()
             voicechannel.play(discord.FFmpegPCMAudio('test.mp3'))
-        if (messsage.content == "Stop"):
+        if (message.content == "Stop"):
             print('test')
 
 
