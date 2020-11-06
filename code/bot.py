@@ -17,6 +17,14 @@ class MyBot(discord.Client):
             # breakpoint()
             await message.channel.send("test")
 
+        if (message.content == "emote"):
+            print('Message from {0.author}: {0.content}'.format(message))
+            await
+            # message.channel.send('You are {0.author}'.format(message))
+            # breakpoint()
+            await
+            message.channel.send("<a:petJules:769223894749151292>")
+            
         if (message.content == "Voice"):
             print('Message from {0.author}: {0.content}'.format(message))
             channel = discord.utils.get(message.guild.channels, name="music")
