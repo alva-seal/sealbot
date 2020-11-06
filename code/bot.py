@@ -17,7 +17,7 @@ class MyBot(discord.Client):
             # breakpoint()
             await message.channel.send("test")
 
-        if (message.content == "echo"):
+        if (message.content.startswith("echo")):
             print('Message from {0.author}: {0.content}'.format(message))
             await message.channel.send('You are {0.content}'.format(message))
             # breakpoint()
