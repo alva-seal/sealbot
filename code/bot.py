@@ -12,22 +12,26 @@ class MyBot(discord.Client):
         if (message.content == "seal"):
             print('Message from {0.author}: {0.content}'.format(message))
             await message.channel.send("otter")
-
-        if (message.content == "whoami"):
-            print('Message from {0.author}: {0.content}'.format(message))
-            await message.channel.send('You are {0.author}'.format(message))
-            await message.channel.send("test")
-
-        if (message.content.startswith("echo")):
-            print('Message from {0.author}: {0.content}'.format(message))
-            await message.channel.send('You are {0.content}'.format(message))
-            await message.channel.send("test")
+            emotes = client.emojis
+            for emote in emotes:
+                await message.channel.send(emote)
+            print(emotes)
 
         if (message.content == "emote"):
             print('Message from {0.author}: {0.content}'.format(message))
             await message.channel.send("<a:petJules:769223894749151292>")
             await message.channel.send("a:petJules:769223894749151292")
             await message.channel.send("<:sealotter:770239018628808735>")
+            await message.channel.send(":sealotter:770239018628808735")
+            await message.channel.send("<:test:774330066141839373>")
+            emote =  client.get_emoji(770239018628808735)
+            print(emote)
+            await message.channel.send(emote)
+            emote =  client.get_emoji(575483017255059456)
+            print(emote)
+            await message.channel.send(emote)
+            emote =  client.get_emoji(769223894749151292)
+            await message.channel.send(emote)
 
         if (message.content == "Voice"):
             print('Message from {0.author}: {0.content}'.format(message))
@@ -38,13 +42,18 @@ class MyBot(discord.Client):
             print('test')
 
         if (message.content.startswith("!add")):
-            await message.channel.send('You are {0.content}'.format(message))
+            await message.channel.send('Added commend {0.content}'.format(message))
             command = message.content.split(" ",2)
             commands[command[1]] = command[2]
         else:
-           command = message.content[1:]
-           await message.channel.send(commands[command]) 
+            if(message.content.startswith("!")):
+                command = message.content[1:]
+                await message.channel.send(commands[command]) 
 
+        if (message.content.startswith("Em")):
+            await message.channel.send('Added commend {0.content}'.format(message))
+            command = message.content.split(" ",2)
+            commands[command[1]] = command[2]
 
 client = MyBot()
 client.run(config.discordSecret)
